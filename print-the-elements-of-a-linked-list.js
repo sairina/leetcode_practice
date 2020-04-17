@@ -1,10 +1,19 @@
+// Complete the printLinkedList function below.
+
+/*
+ * For your reference:
+ *
+ * SinglyLinkedListNode {
+ *     int data;
+ *     SinglyLinkedListNode next;
+ * }
+ *
+ */
 function printLinkedList(head) {
   let current = head;
-  
-  console.log(head.data);
 
-  while (current.next !== null){
-      current = current.next;
+  while (current !== null){
       console.log(current.data);
+      current = current.next;
   }
 }
