@@ -3,19 +3,23 @@
  * @return {string}
  */
 var reverseOnlyLetters = function(S) {
-  let reversed = '';
-  let letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  let letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   
-  //iterate through arr
-  for (let i = 0; i < S.length; i++) {
-    
-    //if letter, swap with last element
-    if(letters.includes(S.charAt(i))) {
-      reversed += S[S.length - (1 + i)];
+  let arr = S.split('');
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left < right) {
+    if (!letters.includes(arr[left])) {
+      left++;
+    } else if (!letters.includes(arr[right])) {
+      right--;
     } else {
-      reversed += S[i];
+      [arr[left], arr[right]]= [arr[right], arr[left]];
+      left++;
+      right--;
     }
   }
-  
-  return reversed;
+
+  return arr.join('');
 };
