@@ -10,11 +10,11 @@ var longestCommonPrefix = function(strs) {
   //iterate through shortest string
   for (let i = 0; i < shortestStr.length; i++){
     //iterate through array of strings
-    for (let j = 0; j < strs.length; j++) {
+    for (let str of strs) {
       //if letter in each of the array elements is not in the same index as shortest string
-      if (strs[j][i] !== shortestStr[i]) {
+      if (str[i] !== shortestStr[i]) {
         //return the length so far
-        return strs[j].slice(0, i);
+        return str.slice(0, i);
       }
     }
   }
