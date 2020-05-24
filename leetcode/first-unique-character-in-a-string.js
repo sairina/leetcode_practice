@@ -4,23 +4,33 @@
  */
 
 var firstUniqChar = function(s) {
-  let sMap = new Map();
-
-  // make map
-  for(let i = 0; i < s.length; i++) {
-    if(sMap.has(s[i])){
-      sMap.set(s[i], 2);
+  let stringMap = new Map();
+  
+  // create Map
+  // for (let i = 0; i < s.length; i++) {
+  //   if(stringMap.has(s[i])) {
+  //     stringMap.set(s[i], 2);
+  //   } else {
+  //     stringMap.set(s[i], 1);
+  //   }
+  // }
+  
+  for (let char of s) {
+    if(stringMap.has(char)) {
+      stringMap.set(char, 2);
     } else {
-      sMap.set(s[i], 1);
+      stringMap.set(char, 1);
     }
   }
-
-  //check if map has non-repeat char from s
-  for(let i = 0; i < s.length; i++) {
-    if(sMap.get(s[i]) === 1) {
+  
+  
+  // iterate over string
+  for (let i = 0; i < s.length; i++) {
+    if (stringMap.get(s[i]) === 1) {
       return i;
     }
   }
   
   return -1;
-}
+  
+};
