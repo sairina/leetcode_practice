@@ -24,3 +24,8 @@ var containsDuplicate = function(nums) {
   
 //   return false;
 };
+
+var containsDuplicate = function(nums) {
+  let numSet = new Set(nums);
+  return [...numSet].length !== nums.length;
+};
