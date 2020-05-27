@@ -25,7 +25,7 @@ var firstUniqChar = function(s) {
   
   
   // iterate over string
-  for (let i = 0; i < s.length; i++) {
+  for (let i in s) {
     if (stringMap.get(s[i]) === 1) {
       return i;
     }
