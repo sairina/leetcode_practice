@@ -1,18 +1,17 @@
 function rot13(str) { 
-  let newStr = '';
+  let ciphered = '';
 
   for (let i = 0; i < str.length; i++){ 
     let letterCode = str.charCodeAt(i);   
-    if (letterCode > 77) {
+    if (letterCode > 77 && letterCode < 91) {
       letterCode -= 13;
-    } else {
+    } else if (letterCode > 64 && letterCode <= 77){
       letterCode +=13;
     }
-      newStr += String.fromCharCode(letterCode);
-      console.log(newStr)
+      ciphered += String.fromCharCode(letterCode);
   }
 
-  return newStr;
+  return ciphered;
 }
 
 rot13("SERR PBQR PNZC");
