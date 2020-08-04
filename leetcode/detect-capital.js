@@ -15,5 +15,11 @@ var detectCapitalUse = function(word) {
   //if the copies are equal to word, return true
     //else return false
   return (word === lowerWord || word === capitalizedWord);
-  
+};
+
+var detectCapitalUse = function(word) {
+ if (word === word.toUpperCase()) return true;
+ if (word === word.toLowerCase()) return true;
+ if (word === word[0].toUpperCase() + word.slice(1).toLowerCase()) return true;
+ return false;
 };
