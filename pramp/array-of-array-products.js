@@ -26,3 +26,25 @@ function calcProductArray(arr) {
 }
 
 calcProductArray([2, 7, 3, 4])
+
+function calcProductArray(arr) {
+  let finalArr = [];
+  let tempArr = [];
+  let left = 1;
+  let right = 1;
+
+  for (let i = 0; i < arr.length; i++) {
+    tempArr[i] = left;
+    left *= arr[i];
+  }
+
+  for (let i = arr.length - 1; i >= 0; i--) {
+    finalArr[i] = tempArr[i] * right;
+    right *= arr[i];
+  }
+
+  return finalArr;
+}
+
+calcProductArray([2, 7, 3, 4])
+
