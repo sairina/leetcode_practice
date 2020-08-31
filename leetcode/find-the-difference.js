@@ -5,31 +5,22 @@
  */
 var findTheDifference = function(s, t) {
 
-  let sDict = makeADictionary(s);
-  let tDict = makeADictionary(t);
+  let obj = {};
+  for (let char of s) {
+    obj[char] = (obj[char] || 0) + 1;
+  }
 
   for (let letter of t) {
-    if (sDict[letter] === undefined) {
+    if (obj[letter] === undefined) {
       return letter;
     } else {
-      sDict[letter]--;
+      obj[letter]--;
     }
   }
   
-  for (let key in sDict) {
-    if (sDict[key] < 0) return key;
+  for (let key in obj) {
+    if (obj[key] < 0) return key;
   }
   
 };
 
-function makeADictionary(str) {
-  let obj = {};
-  for (let letter of str) {
-    if (obj[letter] === undefined) {
-      obj[letter] = 1;
-    } else {
-      obj[letter]++;
-    }
-  }
-  return obj;
-}
